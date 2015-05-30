@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book a cab in Bangaluru</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+<style>
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+header {
+	height:70px;
+    background-color:black;
+    color:white;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+header h1{
+
+width: 50%;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+font-size :50px;
+}
+#headerlogo{
+font-family:impact;
+
+margin-top:7px;
+margin-left:150px;
+width:130px;
+}
+
+header img{
+float:left;
+margin-top:7px;
+margin-left:100px;
+}
+
+#headertext{
+
+font-size :40px;
+color:#eeeeee;
+position: relative;
+    left: 900px;
+    top: -40px;
+}
+
+ul { position: relative;
+
+    top: -130px;overflow: hidden; margin: 0; padding: 0;
+  list-style-type: none; margin-left:950px;}
+
+li { float: left; margin-bottom: 0;  margin-right: 0.5em;
+   }
+
+a { color:blue;text-decoration:none;
+  font-size:20px;padding: 0.25em 0.5em; display: block; border: none; }
+ 
+ 
+  section h1{
+  text-align:centre;
+  height: 50px;
+  width:100%;
+  margin: 0;
+  padding: 0;
+font-size :50px;
+
+
+}
+
+ section h2{
+   font-family:tahoma;
+
+  text-align:centre;
+  height: 50px;
+  width:100%;
+  margin: 0;
+  margin-left:180px;
+  padding: 0;
+ font-size :30px;
+ font-weight:bold;
+}
+
+ section h3{
+  width:100%;
+  margin: 0;
+  margin-left:180px;
+  padding: 0;
+ font-size :20px;
+ font-weight:bold;
+}
+section form h3{
+  margin-left:0px;
+
+}
+#timetext {
+  margin-left:0px;
+  margin-bottom:16.2px;
+}
+#form{
+  width:100%;
+  margin: 0;
+  margin-top:10px;
+  margin-left:180px;
+  padding: 0;
+}
+
+hr{
+color:#D1E0E0;
+background-color : #D1E0E0;
+height:20px;
+}
+
+select {
+    border:0;
+    background:transparent;
+    border:1px solid #d8d8d8;
+    width:140px;
+	font-size:18px;
+	margin:0;
+	padding:0;
+	font-family:rockwell;
+	
+}
+
+#datepicker{
+ border:0;
+    background:transparent;
+    height:25px;
+    border:1px solid #d8d8d8;
+    width:170px;
+	font-size:18px;
+	margin:0;
+	padding:0;
+	font-family:rockwell;
+	        line-height:25px;
+
+}
+
+#time {
+position:relative;
+top : -62px;
+margin-left:240px;
+}
+
+
+</style>
+<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+});
+</script>
+</head>
+<body>
+
+<header>
+<img src = "icon.png" alt = "logo" style="width:50px;height:50px;"/>
+<h1 id = "headerlogo">Fuber</h1>
+<h1 id = "headertext">24*7 Call us at 99999990</h1>
+<ul>
+    <li><a href="#">Sign In</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+</ul>
+</header>
+<hr/>
+
+<section>
+<h1 align="center">One click Taxi</h1><br/>
+<h2>Let's Ride</h2>
+<br/>
+<h3>
+From </h3>
+<div id = "form">
+<select form = "bookcab" name = "area">
+<option value = "none"></option>
+
+<option value = "btm">Btm</option>
+<option value = "koramangala ">Koramangala </option>
+<option value = "indiranagar ">Indiranagar </option>
+<option value = "kengeri">Kengeri</option>
+<option value = "mejestic">Mejestic</option>
+<option value = "gandhibazar">Gandhi Bazar</option>
+<option value = "southend">SouthEnd</option>
+<option value = "lalbagh">Lal Bagh</option>
+</select><br/><br/><br/>
+<form id = "bookcab" action = "book.do" method = "get">
+
+<h3>Pick up Day</h3> <br/><input type="date" name = "day" id="datepicker">
+</form>
+<div id = "time">
+<h3 id = "timetext">Pick up Time</h3>
+<select form = "bookcab"  name = "time" onmouseover="this.size=6;" onmouseout="this.size=1;">
+<OPTION selected  value="none" ></OPTION>
+<option value = "1000">10:00 Am</option>
+<option value = "1030">10:30 Am</option>
+<option value = "1100">11:00 Am</option>
+<option value = "1130">11:30 Am</option>
+<option value = "1200">12:00 pm</option>
+<option value = "1230">12:30 Pm</option>
+<option value = "0100">01:00 Pm</option>
+<option value = "0130">01:30 Pm</option>
+<option value = "0200">02:00 Pm</option>
+<option value = "0230">02:30 Pm</option>
+<option value = "0300">03:00 Pm</option>
+<option value = "0330">03:30 Pm</option>
+<option value = "0400">04:00 Pm</option>
+<option value = "0430">04:30 Pm</option>
+<option value = "0500">05:00 Pm</option>
+<option value = "0530">05:30 Pm</option>
+<option value = "0600">06:00 Pm</option>
+<option value = "0630">06:30 Pm</option>
+<option value = "0700">07:00 Pm</option>
+<option value = "0730">07:30 Pm</option>
+<option value = "0800">08:00 Pm</option>
+<option value = "0830">08:30 Pm</option>
+<option value = "0900">09:00 Pm</option>
+<option value = "0930">09:30 Pm</option>
+<option value = "1000">10:00 Pm</option>
+<option value = "1030">10:30 Pm</option>
+<option value = "1100">11:00 Pm</option>
+<option value = "1130">11:30 Pm</option>
+<option value = "1200">12:00 Am</option>
+<option value = "1230">12:30 Am</option>
+<option value = "0100">01:00 Am</option>
+<option value = "0130">01:30 Am</option>
+<option value = "0200">02:00 Am</option>
+<option value = "0230">02:30 Am</option>
+<option value = "0300">03:00 Am</option>
+<option value = "0330">03:30 Am</option>
+<option value = "0400">04:00 Am</option>
+<option value = "0430">04:30 Am</option>
+<option value = "0500">05:00 Am</option>
+<option value = "0530">05:30 Am</option>
+<option value = "0600">06:00 Am</option>
+<option value = "0630">06:30 Am</option>
+<option value = "0700">07:00 Am</option>
+<option value = "0730">07:30 Am</option>
+<option value = "0800">08:00 Am</option>
+<option value = "0830">08:30 Am</option>
+<option value = "0900">09:00 Am</option>
+<option value = "0930">09:30 Am</option>
+</select>
+</div>
+<button type = "submit" form = "bookcab" value = "Search" style = " position: absolute;">Search</button>
+</div>
+</section>
+
+
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<footer>
+
+Copyright © W3Schools.com
+</footer>
+
+</body>
+</html>
