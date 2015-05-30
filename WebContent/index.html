@@ -246,7 +246,6 @@ height:30px;
 <script>
 $(document).ready(function(){
     $("#submitb").click(function(){
-	alert($('[name=areafrom]').val());
 		if($('[name=areafrom]').val()=='none') {
 			 alert('Text-field is empty.');
 			return false;
@@ -280,8 +279,8 @@ From </h3>
 <option value = "none"></option>
 
 <option value = "btm">Btm</option>
-<option value = "koramangala ">Koramangala </option>
-<option value = "indiranagar ">Indiranagar </option>
+<option value = "koramangala">Koramangala </option>
+<option value = "indiranagar">Indiranagar </option>
 <option value = "kengeri">Kengeri</option>
 <option value = "mejestic">Mejestic</option>
 <option value = "gandhibazar">Gandhi Bazar</option>
@@ -296,8 +295,8 @@ To </h3>
 <option value = "none"></option>
 
 <option value = "btm">Btm</option>
-<option value = "koramangala ">Koramangala </option>
-<option value = "indiranagar ">Indiranagar </option>
+<option value = "koramangala">Koramangala </option>
+<option value = "indiranagar">Indiranagar </option>
 <option value = "kengeri">Kengeri</option>
 <option value = "mejestic">Mejestic</option>
 <option value = "gandhibazar">Gandhi Bazar</option>
@@ -307,6 +306,9 @@ To </h3>
 <form id = "bookcab" action = "search.do" method = "get">
 
 <h3>Pick up Day</h3> <br/><input type="date" name = "day" id="datepicker">
+<h3>Name</h3><input type="text" name = "name" >
+<h3>Phone Number</h3><input type="text" name = "number">
+
 </form>
 <div id = "time">
 <h3 id = "timetext">Pick up Time</h3>

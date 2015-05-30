@@ -10,13 +10,15 @@ import java.util.Properties;
 
 public class MvcUtility {
 
-	private static boolean checkInterface(Class clazz, String interfaceName) {
+	public static boolean checkInterface(Class clazz, String interfaceName) {
 		boolean found = false;
-		Class[] interfaces = clazz.getInterfaces();
-		for (int i = 0; i < interfaces.length; i++) {
-			if (interfaces[i].getName().equals(interfaceName)) {
-				found = true;
-				break;
+		if (clazz != null) {
+			Class[] interfaces = clazz.getInterfaces();
+			for (int i = 0; i < interfaces.length; i++) {
+				if (interfaces[i].getName().equals(interfaceName)) {
+					found = true;
+					break;
+				}
 			}
 		}
 		return found;
@@ -55,6 +57,7 @@ public class MvcUtility {
 			throw new MvcException(e);
 		} finally {
 			try {
+				if(proStr!=null)
 				proStr.close();
 			} catch (IOException e) {
 				throw new MvcException(e);

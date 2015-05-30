@@ -1,33 +1,33 @@
 package com.model;
 
 public class Customer {
-	private String Name;
-	private int age;
+	private String name;
+	private int phoneNum;
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(String name, int age) {
+	public Customer(String name, int phoneNum) {
 		super();
-		Name = name;
-		this.age = age;
+		this.name = name;
+		this.phoneNum = phoneNum;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public int getPhoneNum() {
+		return phoneNum;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setPhoneNum(int phoneNum) {
+		this.phoneNum = phoneNum;
 	}
 
 }

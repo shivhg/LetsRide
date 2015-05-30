@@ -1,25 +1,27 @@
 package com.model;
 
+import java.util.Date;
+
 public class Ride {
 	Customer cust;
 	Location curLoc;
 	Location dropLoc;
-	Time picTime;
-	Time dropTime;
-	float cost;
+	Date picDate;
+	Date dropDate;
+	double cost;
 
 	public Ride() {
 		super();
 	}
 
 	public Ride(Customer cust, Location curLoc, Location dropLoc,
-			Time picTime, Time dropTime, float cost) {
+			Date picDate, Date dropDate, double cost) {
 		super();
 		this.cust = cust;
 		this.curLoc = curLoc;
 		this.dropLoc = dropLoc;
-		this.picTime = picTime;
-		this.dropTime = dropTime;
+		this.picDate = picDate;
+		this.dropDate = dropDate;
 		this.cost = cost;
 	}
 
@@ -47,27 +49,27 @@ public class Ride {
 		this.dropLoc = dropLoc;
 	}
 
-	public Time getPicTime() {
-		return picTime;
+	public Date getPicDate() {
+		return picDate;
 	}
 
-	public void setPicTime(Time picTime) {
-		this.picTime = picTime;
+	public void setPicDate(Date picDate) {
+		this.picDate = picDate;
 	}
 
-	public Time getDropTime() {
-		return dropTime;
+	public Date getDropDate() {
+		return dropDate;
 	}
 
-	public void setDropTime(Time dropTime) {
-		this.dropTime = dropTime;
+	public void setDropDate(Date dropDate) {
+		this.dropDate = dropDate;
 	}
 
-	public float getCost() {
+	public double getCost() {
 		return cost;
 	}
 
-	public void setCost(float cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 }
