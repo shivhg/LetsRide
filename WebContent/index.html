@@ -201,13 +201,57 @@ top : -62px;
 margin-left:240px;
 }
 
+#exclusive{
+position:relative;
+top : -62px;
+left:80px;
+color:red;
+font-size:25px;
+}
 
+#echeck{
+position:relative;
+top : -75px;
+left:320px;
+width:30px;
+height:30px;
+}
+
+div{
+padding:0;
+margin:0;
+}
+
+#to{
+position:relative;
+left:60px;
+top : -56px;
+
+}
+
+#tosel{
+position:relative;
+left:240px;
+top : -45px;
+
+}
+
+#submitb{
+width:80px;
+height:30px;
+}
 </style>
 <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    
+    $("#submitb").click(function(){
+	alert($('[name=areafrom]').val());
+		if($('[name=areafrom]').val()=='none') {
+			 alert('Text-field is empty.');
+			return false;
+		}
+	});
 });
 </script>
 </head>
@@ -232,7 +276,23 @@ $(document).ready(function(){
 <h3>
 From </h3>
 <div id = "form">
-<select form = "bookcab" name = "area">
+<select form = "bookcab" name = "areafrom">
+<option value = "none"></option>
+
+<option value = "btm">Btm</option>
+<option value = "koramangala ">Koramangala </option>
+<option value = "indiranagar ">Indiranagar </option>
+<option value = "kengeri">Kengeri</option>
+<option value = "mejestic">Mejestic</option>
+<option value = "gandhibazar">Gandhi Bazar</option>
+<option value = "southend">SouthEnd</option>
+<option value = "lalbagh">Lal Bagh</option>
+</select>
+
+<h3 id = "to">
+To </h3>
+
+<select form = "bookcab" name = "areato" id = "tosel">
 <option value = "none"></option>
 
 <option value = "btm">Btm</option>
@@ -244,7 +304,7 @@ From </h3>
 <option value = "southend">SouthEnd</option>
 <option value = "lalbagh">Lal Bagh</option>
 </select><br/><br/><br/>
-<form id = "bookcab" action = "book.do" method = "get">
+<form id = "bookcab" action = "search.do" method = "get">
 
 <h3>Pick up Day</h3> <br/><input type="date" name = "day" id="datepicker">
 </form>
@@ -301,19 +361,23 @@ From </h3>
 <option value = "0900">09:00 Am</option>
 <option value = "0930">09:30 Am</option>
 </select>
+<h3 id = "exclusive"> Hey fuber exclusive!! Pick your car at 5$ </h3>
+<br/><input type="checkbox" name = "pick" checked id = "echeck" form = "bookcab">
+<button type = "submit" form = "bookcab" value = "Search" id = "submitb">Book</button>
+
 </div>
-<button type = "submit" form = "bookcab" value = "Search" style = " position: absolute;">Search</button>
 </div>
+
+
 </section>
 
 
-<br/>
-<br/>
-<br/>
-<br/><br/>
-<br/>
-<br/>
-<br/><br/>
+
+
+
+
+
+
 <br/>
 <br/>
 <br/><br/>
@@ -322,7 +386,7 @@ From </h3>
 <br/>
 <footer>
 
-Copyright © W3Schools.com
+Copyright © fuber.com
 </footer>
 
 </body>

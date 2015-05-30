@@ -3,17 +3,22 @@ package com.model;
 public class Car {
 	private int regNum;
 	private String color;
-	private String brand;
+	private String model;
 
 	public Car() {
 		super();
+	}
+
+	public Car(int regNum) {
+		super();
+		this.regNum = regNum;
 	}
 
 	public Car(int regNum, String color, String brand) {
 		super();
 		this.regNum = regNum;
 		this.color = color;
-		this.brand = brand;
+		this.model = brand;
 	}
 
 	public int getRegNum() {
@@ -32,12 +37,21 @@ public class Car {
 		this.color = color;
 	}
 
-	public String getBrand() {
-		return brand;
+	public String getModel() {
+		return model;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public void setModel(String model) {
+		this.model = model;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this.regNum == ((Car) obj).getRegNum();
+	}
+	
+	public int hashCode() {
+        return regNum;
+    }
 
 }

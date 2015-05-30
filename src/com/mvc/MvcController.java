@@ -1,6 +1,7 @@
 package com.mvc;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletConfig;
@@ -8,9 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Car;
+import com.model.Ride;
+import com.web.handlers.Setup;
+
 public class MvcController extends javax.servlet.http.HttpServlet implements
 		javax.servlet.Servlet {
-
+	static HashMap<Car, Ride> fuber;
 	private Map handlers;
 	static final long serialVersionUID = 1L;
 
@@ -22,6 +27,7 @@ public class MvcController extends javax.servlet.http.HttpServlet implements
 
 		try {
 			handlers = MvcUtility.buildHandlers(mvcProps);
+			fuber = Setup.startService();
 		} catch (MvcException e) {
 			throw new ServletException(
 					"Unable to Configure Controller Servlet", e);
@@ -30,11 +36,12 @@ public class MvcController extends javax.servlet.http.HttpServlet implements
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("in");
 		String path = request.getServletPath();
 
 		String key = path.substring(1, path.lastIndexOf("."));
-		HttpRequestHandler handler = (HttpRequestHandler) handlers.get(key);// D:\advjava\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Mvc\WEB-INF\mvc.properties
+		System.out.println(key);
+		HttpRequestHandler handler = (HttpRequestHandler) handlers.get(key);
+		request.setAttribute("fuber", fuber);
 		if (handler != null) {
 			handler.handle(request, response);
 		} else {

@@ -13,7 +13,7 @@
     <description></description>
     <display-name>MvcController</display-name>
     <servlet-name>MvcController</servlet-name>
-    <servlet-class>com.nttdata.mvc.MvcController</servlet-class>
+    <servlet-class>com.mvc.MvcController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MvcController</servlet-name>

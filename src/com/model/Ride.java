@@ -2,7 +2,7 @@ package com.model;
 
 public class Ride {
 	Customer cust;
-	Location pickLoc;
+	Location curLoc;
 	Location dropLoc;
 	Time picTime;
 	Time dropTime;
@@ -12,11 +12,11 @@ public class Ride {
 		super();
 	}
 
-	public Ride(Customer cust, Location pickLoc, Location dropLoc,
+	public Ride(Customer cust, Location curLoc, Location dropLoc,
 			Time picTime, Time dropTime, float cost) {
 		super();
 		this.cust = cust;
-		this.pickLoc = pickLoc;
+		this.curLoc = curLoc;
 		this.dropLoc = dropLoc;
 		this.picTime = picTime;
 		this.dropTime = dropTime;
@@ -31,12 +31,12 @@ public class Ride {
 		this.cust = cust;
 	}
 
-	public Location getPickLoc() {
-		return pickLoc;
+	public Location getCurLoc() {
+		return curLoc;
 	}
 
-	public void setPickLoc(Location pickLoc) {
-		this.pickLoc = pickLoc;
+	public void setCurLoc(Location curLoc) {
+		this.curLoc = curLoc;
 	}
 
 	public Location getDropLoc() {

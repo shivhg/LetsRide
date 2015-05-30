@@ -9,6 +9,11 @@ public class Time {
 		super();
 	}
 
+	public Time(Date time) {
+		super();
+		this.time = time;
+	}
+
 	public Date getTime() {
 		return time;
 	}
