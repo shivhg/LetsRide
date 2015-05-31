@@ -27,6 +27,7 @@ import com.mvc.HttpRequestHandler;
 public class Search implements HttpRequestHandler {
 	HttpSession session = null;
 	public static final Logger LOG = Logger.getLogger(Search.class);
+
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -41,7 +42,7 @@ public class Search implements HttpRequestHandler {
 
 	private void bookCab(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		LOG.info("------------------------------------------");
 		String location = request.getParameter("areafrom");
 		LOG.info(location);
@@ -57,7 +58,8 @@ public class Search implements HttpRequestHandler {
 			ride.add(value);
 		}
 		List<Location> loc = (List<Location>) session.getAttribute("location");
-		if(location.equals("none") || request.getParameter("areato").equals("none")) {
+		if (location.equals("none")
+				|| request.getParameter("areato").equals("none")) {
 			response.sendRedirect("index.html");
 			return;
 		}
@@ -76,7 +78,7 @@ public class Search implements HttpRequestHandler {
 			int dis = dist(dist, locat.getDistFromCent());
 			distance.put(dis, locat.getName());
 		}
-		
+
 		String color = request.getParameter("carcolor");
 
 		int min = 50;
@@ -87,7 +89,7 @@ public class Search implements HttpRequestHandler {
 				Ride rid = fuber.get(cr);
 				if (rid.getCust() != null)
 					continue;
-				if(!color.equals("none") && !color.equals(cr.getColor())) 
+				if (!color.equals("none") && !color.equals(cr.getColor()))
 					continue;
 				if (rid.getCurLoc().getName().equals(nearLoc)) {
 					String name = request.getParameter("name");
@@ -113,9 +115,9 @@ public class Search implements HttpRequestHandler {
 							new Date(), new Date(), cost);
 					fuber.put(cr, bok);
 					session.setAttribute("regNum", cr.getRegNum());
-					cost = 2*cost+new Random().nextInt(10);
-					if(cr.getColor()=="pink") {
-						cost+=5;
+					cost = 2 * cost + new Random().nextInt(10);
+					if (cr.getColor() == "pink") {
+						cost += 5;
 					}
 					request.setAttribute("cost", cost);
 					RequestDispatcher rd = request
@@ -129,11 +131,14 @@ public class Search implements HttpRequestHandler {
 				break;
 			}
 		}
-		if(!done) {
-			response.sendRedirect("sorry.html");
+		if (!done) {
+			if (!color.equals("none"))
+				response.sendRedirect("sorry.html");
+			else
+				response.sendRedirect("busy.html");
+
 		}
 	}
-
 
 	// always assumed to be 90degree and pythagoras theorem is used
 	public int dist(int a, int b) {
