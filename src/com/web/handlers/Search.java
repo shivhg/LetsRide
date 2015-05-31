@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -17,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.model.Car;
 import com.model.Customer;
 import com.model.Location;
@@ -25,7 +26,7 @@ import com.mvc.HttpRequestHandler;
 
 public class Search implements HttpRequestHandler {
 	HttpSession session = null;
-
+	public static final Logger LOG = Logger.getLogger(Search.class);
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -40,9 +41,12 @@ public class Search implements HttpRequestHandler {
 
 	private void bookCab(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
+		LOG.info("------------------------------------------");
 		String location = request.getParameter("areafrom");
-		System.out.println(location);
+		LOG.info(location);
 		int dist = 0;
+		@SuppressWarnings("unchecked")
 		HashMap<Car, Ride> fuber = (HashMap<Car, Ride>) session
 				.getAttribute("fuber");
 		Set<Car> cars = fuber.keySet();
@@ -53,9 +57,11 @@ public class Search implements HttpRequestHandler {
 			ride.add(value);
 		}
 		List<Location> loc = (List<Location>) session.getAttribute("location");
-		
+		if(location.equals("none") || request.getParameter("areato").equals("none")) {
+			response.sendRedirect("index.html");
+			return;
+		}
 		for (Location locat : loc) {
-
 			if (locat.getName().equals(location)) {
 				dist = locat.getDistFromCent();
 			}
@@ -63,28 +69,32 @@ public class Search implements HttpRequestHandler {
 
 		Map<Integer, String> distance = new TreeMap<Integer, String>();
 		for (Location locat : loc) {
-			if(locat.getName().equals(location)) {
+			if (locat.getName().equals(location)) {
 				distance.put(0, locat.getName());
 				continue;
 			}
 			int dis = dist(dist, locat.getDistFromCent());
 			distance.put(dis, locat.getName());
 		}
+		
+		String color = request.getParameter("carcolor");
+
 		int min = 50;
 		boolean done = false;
-		print(fuber);
 		for (int i : distance.keySet()) {
 			String nearLoc = distance.get(i);
 			for (Car cr : fuber.keySet()) {
 				Ride rid = fuber.get(cr);
-				if(rid.getCust()!=null) 
+				if (rid.getCust() != null)
 					continue;
-				if(rid.getCurLoc().getName() == nearLoc) {
+				if(!color.equals("none") && !color.equals(cr.getColor())) 
+					continue;
+				if (rid.getCurLoc().getName().equals(nearLoc)) {
 					String name = request.getParameter("name");
 					int num = Integer.valueOf(request.getParameter("number"));
 					String dropLoc = request.getParameter("areato");
 					Customer cust = new Customer(name, num);
-					System.out.println(cust.getName()+" print "+name);
+					LOG.info(cust.getName() + " print " + name);
 					int ddist = 0;
 					for (Location locat : loc) {
 						if (locat.getName().equals(dropLoc)) {
@@ -92,33 +102,38 @@ public class Search implements HttpRequestHandler {
 						}
 					}
 					Location dropLocat = new Location(dropLoc, ddist);
-
-					Ride bok = new Ride(cust, rid.getCurLoc(), dropLocat, new Date(), new Date(), i+1.1);
+					int cost = 0;
+					for (int cst : distance.keySet()) {
+						if (distance.get(cst).equals(dropLoc)) {
+							cost = cst;
+							break;
+						}
+					}
+					Ride bok = new Ride(cust, rid.getCurLoc(), dropLocat,
+							new Date(), new Date(), cost);
 					fuber.put(cr, bok);
-					RequestDispatcher rd=request.getRequestDispatcher("servlet2");  
+					session.setAttribute("regNum", cr.getRegNum());
+					cost = 2*cost+new Random().nextInt(10);
+					if(cr.getColor()=="pink") {
+						cost+=5;
+					}
+					request.setAttribute("cost", cost);
+					RequestDispatcher rd = request
+							.getRequestDispatcher("travelling.jsp");
 					rd.forward(request, response);
 					done = true;
 					break;
 				}
 			}
-			if(done == true) {
+			if (done == true) {
 				break;
 			}
 		}
-		print(fuber);
-	}
-
-	private void print(HashMap<Car, Ride> fuber) {
-		System.out.println();
-		System.out.println();
-		for(Car cr : fuber.keySet()) {
-			if(fuber.get(cr).getCust()==null)
-				System.out.println(cr.getRegNum()+" "+fuber.get(cr).getCust()+" "+fuber.get(cr).getCurLoc().getName());
-
-			else
-				System.out.println(cr.getRegNum()+" "+fuber.get(cr).getCust().getName()+" "+fuber.get(cr).getCurLoc().getName());
+		if(!done) {
+			response.sendRedirect("sorry.html");
 		}
 	}
+
 
 	// always assumed to be 90degree and pythagoras theorem is used
 	public int dist(int a, int b) {

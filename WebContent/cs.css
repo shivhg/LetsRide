@@ -1,0 +1,254 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+header {
+	height: 70px;
+	background-color: black;
+	color: white;
+	padding: 5px;
+}
+
+nav {
+	line-height: 30px;
+	background-color: #eeeeee;
+	height: 300px;
+	width: 100px;
+	float: left;
+	padding: 5px;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	clear: both;
+	text-align: center;
+	padding: 5px;
+}
+
+header h1 {
+	width: 50%;
+	height: 60px;
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+}
+
+#headerlogo {
+	font-family: impact;
+	margin-top: 7px;
+	margin-left: 150px;
+	width: 130px;
+}
+
+header img {
+	float: left;
+	margin-top: 7px;
+	margin-left: 100px;
+}
+
+#headertext {
+	font-size: 40px;
+	color: #eeeeee;
+	position: relative;
+	left: 900px;
+	top: -40px;
+}
+
+ul {
+	position: relative;
+	top: -130px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	margin-left: 950px;
+}
+
+li {
+	float: left;
+	margin-bottom: 0;
+	margin-right: 0.5em;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+	font-size: 20px;
+	padding: 0.25em 0.5em;
+	display: block;
+	border: none;
+}
+
+section h1 {
+	text-align: centre;
+	height: 50px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+}
+
+section h2 {
+	font-family: tahoma;
+	text-align: centre;
+	height: 50px;
+	width: 100%;
+	margin: 0;
+	margin-left: 180px;
+	padding: 0;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+section h3 {
+	width: 100%;
+	margin: 0;
+	margin-left: 180px;
+	padding: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+section form h3 {
+	margin-left: 0px;
+}
+
+#timetext {
+	margin-left: 0px;
+	margin-bottom: 16.2px;
+}
+
+#form {
+	width: 100%;
+	margin: 0;
+	margin-top: 10px;
+	margin-left: 180px;
+	padding: 0;
+}
+
+hr {
+	color: #D1E0E0;
+	background-color: #D1E0E0;
+	height: 20px;
+}
+
+#select {
+	border: 0;
+	background: transparent;
+	border: 1px solid #d8d8d8;
+	width: 140px;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	font-family: rockwell;
+}
+
+#carsel {
+	position: relative;
+	top: -50px;
+	left: 300px;
+	border: 0;
+	background: transparent;
+	border: 1px solid #d8d8d8;
+	width: 140px;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	font-family: rockwell;
+}
+
+#datepicker {
+	border: 0;
+	background: transparent;
+	height: 25px;
+	border: 1px solid #d8d8d8;
+	width: 170px;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	font-family: rockwell;
+	line-height: 25px;
+}
+
+#time {
+	position: relative;
+	top: -62px;
+	margin-left: 240px;
+}
+
+#exclusive {
+	position: relative;
+	top: -62px;
+	left: 200px;
+	color: red;
+	font-size: 25px;
+}
+
+#echeck {
+	position: relative;
+	top: -75px;
+	left: 320px;
+	width: 30px;
+	height: 30px;
+}
+
+div {
+	padding: 0;
+	margin: 0;
+}
+
+#to {
+	position: relative;
+	left: 60px;
+	top: -56px;
+}
+
+#tosel {
+	position: relative;
+	left: 240px;
+	top: -45px;
+}
+
+#submitb {
+	width: 80px;
+	height: 30px;
+}

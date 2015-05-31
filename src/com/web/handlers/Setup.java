@@ -5,13 +5,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.model.Car;
 import com.model.Location;
 import com.model.Ride;
 
 public class Setup {
 	static HashMap<Car, Ride> fuber = new HashMap<Car, Ride>();;
-
+	public static final Logger LOG = Logger.getLogger(Setup.class);
 	public static HashMap<Car, Ride> startService() {
 		fuber.put(createCar(10, "pink", "Indica"), new Ride(null, new Location(
 				"btm", 0), null,new Date(), null, 0));

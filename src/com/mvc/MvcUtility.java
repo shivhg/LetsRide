@@ -8,7 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
+import com.web.handlers.Pay;
+
 public class MvcUtility {
+	public static final Logger LOG = Logger.getLogger(MvcUtility.class);
 
 	public static boolean checkInterface(Class clazz, String interfaceName) {
 		boolean found = false;

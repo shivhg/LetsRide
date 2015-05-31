@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.bg.ReleaseResource;
 import com.model.Car;
 import com.model.Location;
 import com.model.Ride;
+import com.web.handlers.Pay;
 import com.web.handlers.Setup;
 
 public class MvcController extends javax.servlet.http.HttpServlet implements
@@ -27,6 +30,7 @@ public class MvcController extends javax.servlet.http.HttpServlet implements
 	private Map handlers;
 	static final long serialVersionUID = 1L;
 	private ScheduledExecutorService scheduler;
+	public static final Logger LOG = Logger.getLogger(MvcController.class);
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
